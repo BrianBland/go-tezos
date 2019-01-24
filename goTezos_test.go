@@ -313,7 +313,7 @@ func TestGetAccountBalanceAtSnapshot(t *testing.T) {
 	gt.AddNewClient(client)
 
 	t.Log("Getting account balance for tz1SUgyRB8T5jXgXAwS33pgRHAKrafyg87Yc, at cycle 15")
-	balance, err := gt.GetAccountBalanceAtSnapshot("tz1SUgyRB8T5jXgXAwS33pgRHAKrafyg87Yc", 15)
+	balance, err := gt.GetAccountBalanceAtSnapshot("tz1SUgyRB8T5jXgXAwS33pgRHAKrafyg87Yc", 25)
 	if err != nil {
 		t.Errorf("%s", err)
 	}

@@ -1,6 +1,7 @@
 package goTezos
 
 import (
+	"fmt"
 	"strconv"
 	"sync"
 )
@@ -121,8 +122,24 @@ func (this *GoTezos) getCycleRewards(delegatePhk string, cycle int) (CycleReward
 //A function that gets the rewards earned by a delegate for a specific cycle.
 func (this *GoTezos) GetDelegateRewardsForCycle(delegatePhk string, cycle int) (string, error) {
 	rewards := FrozenBalanceRewards{}
+	get := ""
 
-	get := "/chains/main/blocks/head/context/raw/json/contracts/index/" + delegatePhk + "/frozen_balance/" + strconv.Itoa(cycle) + "/"
+	curCycle, err := this.GetCurrentCycle()
+	if err != nil {
+		return "", err
+	}
+	diff := curCycle - cycle
+	if diff > 7 {
+		snap, err := this.GetSnapShot(cycle + 8)
+		if err != nil {
+			return "", err
+		}
+		get = "/chains/main/blocks/" + snap.AssociatedHash + "/context/raw/json/contracts/index/" + delegatePhk + "/frozen_balance/" + strconv.Itoa(cycle) + "/"
+	} else {
+		get = "/chains/main/blocks/head/context/raw/json/contracts/index/" + delegatePhk + "/frozen_balance/" + strconv.Itoa(cycle) + "/"
+	}
+
+	fmt.Println(get)
 	resp, err := this.GetResponse(get, "{}")
 	if err != nil {
 		return "", err
