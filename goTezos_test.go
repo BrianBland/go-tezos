@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestNewRPCClient(t *testing.T) {
+func Test_NewRPCClient(t *testing.T) {
 
 	t.Log("RPC client connecting to a Tezos node over localhost, port 8732")
 
@@ -17,7 +17,7 @@ func TestNewRPCClient(t *testing.T) {
 	}
 }
 
-func TestNewWebClient(t *testing.T) {
+func Test_NewWebClient(t *testing.T) {
 
 	t.Log("Web-based RPC client using https://rpc.tzbeta.net")
 
@@ -32,7 +32,7 @@ func TestNewWebClient(t *testing.T) {
 	}
 }
 
-func TestCreateWalletWithMnemonic(t *testing.T) {
+func Test_CreateWalletWithMnemonic(t *testing.T) {
 
 	gt := NewGoTezos()
 
@@ -58,7 +58,7 @@ func TestCreateWalletWithMnemonic(t *testing.T) {
 	}
 }
 
-func TestImportWalletFullSk(t *testing.T) {
+func Test_ImportWalletFullSk(t *testing.T) {
 
 	gt := NewGoTezos()
 
@@ -78,7 +78,7 @@ func TestImportWalletFullSk(t *testing.T) {
 	}
 }
 
-func TestImportWalletSeedSk(t *testing.T) {
+func Test_ImportWalletSeedSk(t *testing.T) {
 
 	gt := NewGoTezos()
 
@@ -99,7 +99,7 @@ func TestImportWalletSeedSk(t *testing.T) {
 	}
 }
 
-func TestImportEncryptedSecret(t *testing.T) {
+func Test_ImportEncryptedSecret(t *testing.T) {
 
 	gt := NewGoTezos()
 
@@ -120,36 +120,6 @@ func TestImportEncryptedSecret(t *testing.T) {
 	if myWallet.Address != pkh || myWallet.Pk != pk {
 		t.Errorf("Imported encrypted wallet does not match known answers")
 	}
-}
-
-func TestGetSnapShot(t *testing.T) {
-
-	gt := NewGoTezos()
-	client := NewTezosRPCClient("rpc.tzbeta.net", "443")
-	gt.AddNewClient(client)
-
-	t.Log("Getting snapshot 15 from the network")
-
-	snapshot, err := gt.GetSnapShot(15)
-	if err != nil {
-		t.Errorf("%s", err)
-	}
-
-	t.Log(PrettyReport(snapshot))
-}
-
-func TestGetAllCurrentSnapShots(t *testing.T) {
-	gt := NewGoTezos()
-	client := NewTezosRPCClient("rpc.tzbeta.net", "443")
-	gt.AddNewClient(client)
-
-	t.Log("Getting all current snapshots")
-	snapshots, err := gt.GetAllCurrentSnapShots()
-	if err != nil {
-		t.Errorf("%s", err)
-	}
-
-	t.Log(PrettyReport(snapshots))
 }
 
 func TestGetChainHead(t *testing.T) {

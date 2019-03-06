@@ -148,7 +148,7 @@ func (this *GoTezos) GetNetworkConstants() (NetworkConstants, error) {
 
 func (this *GoTezos) GetNetworkVersions() ([]NetworkVersion, error) {
 
-	networkVersions := make([]NetworkVersion, 0)
+	networkVersions := []NetworkVersion{}
 
 	resp, err := this.GetResponse("/network/versions", "{}")
 	if err != nil {

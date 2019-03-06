@@ -8,8 +8,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/patrickmn/go-cache"
 	"strings"
+
+	"github.com/patrickmn/go-cache"
 )
 
 func NewGoTezos() *GoTezos {
