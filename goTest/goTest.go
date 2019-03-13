@@ -2,7 +2,7 @@ package main
 
 import (
   "fmt"
-  "github.com/DefinitelyNotAGoat/go-tezos"
+  "github.com/BrianBland/go-tezos"
 )
 
 //Please use another rpc for real money tx. This is just for testing purpose!

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/DefinitelyNotAGoat/go-tezos"
+	"github.com/BrianBland/go-tezos"
 )
 
 //Used to show how to use added features to Create Batch Payments. The signed operations are not injeced but rather returned as an array.
