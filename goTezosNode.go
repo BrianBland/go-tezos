@@ -3,6 +3,7 @@ package goTezos
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net"
@@ -80,8 +81,14 @@ func (this *TezosRPCClient) GetResponse(method string, path string, args string)
 		url = fmt.Sprintf("http://%s:%s%s", this.Host, this.Port, path)
 	}
 
-	var jsonStr = []byte(args)
-	req, err := http.NewRequest(method, url, bytes.NewBuffer(jsonStr))
+	var body io.Reader
+
+	if method != "GET" {
+		var jsonStr = []byte(args)
+		body = bytes.NewReader(jsonStr)
+	}
+
+	req, err := http.NewRequest(method, url, body)
 	if err != nil {
 		this.logger.Println("Error in GetResponse: " + err.Error())
 		return ResponseRaw{}, err
