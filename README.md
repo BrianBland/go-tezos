@@ -2,25 +2,32 @@
 
 The purpose of this library is to allow developers to build go driven applications for Tezos of the Tezos RPC. This library is a work in progress, and not complete. 
 
-More robust documentation will come soon.
-
 ## Installation
 
-Install pkg_config (debian example below):
+**Without wallet support:**
+
+```
+go get github.com/BrianBland/go-tezos
+```
+
+**With wallet support:**
+
+1. Install pkg\_config (debian example below):
 ```
 sudo apt-get install pkg_config
 ```
 
-Install [libsoidum](https://libsodium.gitbook.io/doc/installation)
+2. Install [libsoidum](https://libsodium.gitbook.io/doc/installation)
 
-Get goTezos 
+3. Get goTezos:
+
 ```
-go get github.com/DefinitelyNotAGoat/goTezos
+go get --tags wallet github.com/BrianBland/goTezos
 ```
 
 ## goTezos Documentation
 
-[GoDoc](https://godoc.org/github.com/DefinitelyNotAGoat/goTezos)
+[GoDoc](https://godoc.org/github.com/BrianBland/goTezos)
 
 The goTezos Library requires you to set the RPC URL for a node to query. 
 
@@ -32,7 +39,7 @@ package main
 
 import (
 	"fmt"
-	goTezos "github.com/DefinitelyNotAGoat/go-tezos"
+	goTezos "github.com/BrianBland/go-tezos"
 )
 
 func main() {
@@ -44,16 +51,7 @@ func main() {
 }
 ```
 
-I will create a wiki shortly describing the functions available.
-
-## Contributers
-
-* [**DefinitelyNotAGoat**](https://github.com/DefinitelyNotAGoat)
-* [**Magic_Gum**](https://github.com/fkbenjamin)
-* [**Johann**](https://github.com/tulpenhaendler)
-* [**utdrmac**](https://github.com/utdrmac)
-
-See the list of [contributors](https://github.com/DefinitelyNotAGoat/goTezos/graphs/contributors) who participated in this project.
+Fork of [**DefinitelyNotAGoat**](https://github.com/DefinitelyNotAGoat)
 
 ## License
 
