@@ -1,4 +1,4 @@
-// +build cgo
+// +build cgo,wallet
 
 package goTezos
 

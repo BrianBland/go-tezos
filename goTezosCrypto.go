@@ -1,11 +1,11 @@
-// +build cgo
+// +build cgo,wallet
 
 package goTezos
 
 import (
 	"strings"
 
-	"github.com/GoKillers/libsodium-go/cryptogenerichash"
+	generichash "github.com/GoKillers/libsodium-go/cryptogenerichash"
 	"github.com/GoKillers/libsodium-go/cryptosign"
 	"gitlab.com/tulpenhaendler/hellotezos/base58check"
 )
