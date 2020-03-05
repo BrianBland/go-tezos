@@ -25,31 +25,32 @@ type NetworkVersions []NetworkVersion
 
 // NetworkConstants represents the network constants returned by the Tezos network.
 type NetworkConstants struct {
-	ProofOfWorkNonceSize         int      `json:"proof_of_work_nonce_size"`
-	NonceLength                  int      `json:"nonce_length"`
-	MaxRevelationsPerBlock       int      `json:"max_revelations_per_block"`
-	MaxOperationDataLength       int      `json:"max_operation_data_length"`
-	MaxProposalsPerDelegate      int      `json:"max_proposals_per_delegate"`
-	PreservedCycles              int      `json:"preserved_cycles"`
-	BlocksPerCycle               int      `json:"blocks_per_cycle"`
-	BlocksPerCommitment          int      `json:"blocks_per_commitment"`
-	BlocksPerRollSnapshot        int      `json:"blocks_per_roll_snapshot"`
-	BlocksPerVotingPeriod        int      `json:"blocks_per_voting_period"`
-	TimeBetweenBlocks            []string `json:"time_between_blocks"`
-	EndorsersPerBlock            int      `json:"endorsers_per_block"`
-	HardGasLimitPerOperation     string   `json:"hard_gas_limit_per_operation"`
-	HardGasLimitPerBlock         string   `json:"hard_gas_limit_per_block"`
-	ProofOfWorkThreshold         string   `json:"proof_of_work_threshold"`
-	TokensPerRoll                string   `json:"tokens_per_roll"`
-	MichelsonMaximumTypeSize     int      `json:"michelson_maximum_type_size"`
-	SeedNonceRevelationTip       string   `json:"seed_nonce_revelation_tip"`
-	OriginationSize              int      `json:"origination_size"`
-	BlockSecurityDeposit         string   `json:"block_security_deposit"`
-	EndorsementSecurityDeposit   string   `json:"endorsement_security_deposit"`
-	BlockReward                  string   `json:"block_reward"`
-	EndorsementReward            string   `json:"endorsement_reward"`
-	CostPerByte                  string   `json:"cost_per_byte"`
-	HardStorageLimitPerOperation string   `json:"hard_storage_limit_per_operation"`
+	ProofOfWorkNonceSize       int      `json:"proof_of_work_nonce_size"`
+	NonceLength                int      `json:"nonce_length"`
+	MaxRevelationsPerBlock     int      `json:"max_revelations_per_block"`
+	MaxOperationDataLength     int      `json:"max_operation_data_length"`
+	MaxProposalsPerDelegate    int      `json:"max_proposals_per_delegate"`
+	PreservedCycles            int      `json:"preserved_cycles"`
+	BlocksPerCycle             int      `json:"blocks_per_cycle"`
+	BlocksPerCommitment        int      `json:"blocks_per_commitment"`
+	BlocksPerRollSnapshot      int      `json:"blocks_per_roll_snapshot"`
+	BlocksPerVotingPeriod      int      `json:"blocks_per_voting_period"`
+	TimeBetweenBlocks          []string `json:"time_between_blocks"`
+	EndorsersPerBlock          int      `json:"endorsers_per_block"`
+	HardGasLimitPerOperation   string   `json:"hard_gas_limit_per_operation"`
+	HardGasLimitPerBlock       string   `json:"hard_gas_limit_per_block"`
+	ProofOfWorkThreshold       string   `json:"proof_of_work_threshold"`
+	TokensPerRoll              string   `json:"tokens_per_roll"`
+	MichelsonMaximumTypeSize   int      `json:"michelson_maximum_type_size"`
+	SeedNonceRevelationTip     string   `json:"seed_nonce_revelation_tip"`
+	OriginationSize            int      `json:"origination_size"`
+	BlockSecurityDeposit       string   `json:"block_security_deposit"`
+	EndorsementSecurityDeposit string   `json:"endorsement_security_deposit"`
+	BlockReward                string   `json:"block_reward"`
+	// Temporarily removed to work around babylon/carthage type incompatibility
+	// EndorsementReward            string   `json:"endorsement_reward"`
+	CostPerByte                  string `json:"cost_per_byte"`
+	HardStorageLimitPerOperation string `json:"hard_storage_limit_per_operation"`
 }
 
 // Connections represents network connections
